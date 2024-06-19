@@ -1,0 +1,20 @@
+using System;
+using System.Collections.Generic;
+using System.IO.Pipelines;
+using System.Linq;
+using System.Net.Mime;
+using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace api.Models
+{
+    public class Comment
+    {
+        public int Id { get; set; }
+        public string Title { get; set; } = string.Empty;
+        public string Content { get; set; } = string.Empty;
+        public DateTime CreatedOn { get; set; } = DateTime.Now;
+        public int? StockId { get; set; }
+        public Stock? Stock { get; set; }
+    }
+}
