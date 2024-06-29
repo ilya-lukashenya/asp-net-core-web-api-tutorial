@@ -20,8 +20,8 @@ namespace api.Repository
 
         public async Task<List<Stock>> GetAllAsync()
         {
-
             return await _context.Stocks.ToListAsync();
+            return await _context.Stocks.Include(c => c.Comments).ToListAsync();
         }
 
         public async Task<Stock> CreateAsync(Stock stockModel)
@@ -42,7 +42,7 @@ namespace api.Repository
 
             _context.Stocks.Remove(stockModel);
             await _context.SaveChangesAsync();
-            return stockModel;
+            return stockModel;  
         }
 
         public async Task<Stock?> GetByIdAsync(int id)
