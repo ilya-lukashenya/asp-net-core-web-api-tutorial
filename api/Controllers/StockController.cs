@@ -38,7 +38,7 @@ namespace api.Controllers
 
             var stockDto = stocks.Select(s => s.ToStockDto()).ToList();
             
-            return Ok(stocks);
+            return Ok(stockDto);
         }
 
         [HttpGet("{id:int}")]
