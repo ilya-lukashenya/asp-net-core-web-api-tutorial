@@ -87,6 +87,18 @@ namespace api.Controllers
             return Ok(marketModel.ToMarketkDto());
         }
 
+        [HttpGet]
+        public async Task<IActionResult> GetAll()
+        {
+            if (!ModelState.IsValid) 
+            {
+                return BadRequest(ModelState);
+            }
+            var markets = await _marketRepo.GetAllAsync();
+            
+            return Ok(markets);
+        }
+
         [HttpDelete]
         [Route("{id:int}")]
         public async Task<IActionResult> Delete([FromRoute] int id) 

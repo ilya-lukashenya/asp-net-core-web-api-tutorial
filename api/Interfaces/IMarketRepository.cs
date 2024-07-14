@@ -13,5 +13,6 @@ namespace api.Interfaces
         Task<Market> CreateAsync(Market marketModel);
         Task<Market?> UpdateAsync(int id, UpdateMarketRequestDto marketkDto);
         Task<Market?> DeleteAsync(int id);
+        Task<List<Market>> GetAllAsync();
     }
 }

@@ -49,6 +49,11 @@ namespace api.Repository
             return existingMarket;
         }
 
+        public async Task<List<Market>> GetAllAsync()
+        {
+            return await _context.Markets.ToListAsync();
+        }
+
          public async Task<Market?> DeleteAsync(int id)
         {
             var marketModel = await _context.Markets.FirstOrDefaultAsync(x => x.Id == id);
